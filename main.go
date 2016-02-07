@@ -22,5 +22,8 @@ func main() {
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
-
+	name := r.FormValue("name")
+	tmpl.ExecuteTemplate(w, "home.tmpl", map[string]interface{}{
+		"name": name,
+	})
 }
